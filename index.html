@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>touchClick</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<script type="text/javascript" src="http://zeptojs.com/zepto.js"></script>
+	<script type="text/javascript" src="./zepto.touchclick.js"></script>
+    <style>
+    body{
+        margin:50px;
+        padding:0;
+        text-align:center;
+    }
+    .button,
+    .button2{
+        display:inline-block;
+        padding:0.5em 1em;
+        border:1px solid #bbb;
+        border-radius:1em;
+        background:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#ddd));
+        background:-moz-linear-gradient(top,#fff,#ddd);
+        background:-ms-linear-gradient(top,#fff,#ddd);
+        background:-o-linear-gradient(top,#fff,#ddd);
+        -webkit-box-shadow:0 1px 1px #bbb,0 3px 1px #ddd;
+        -moz-box-shadow:0 1px 1px #bbb,0 3px 1px #ddd;
+        -ms-box-shadow:0 1px 1px #bbb,0 3px 1px #ddd;
+        -o-box-shadow:0 1px 1px #bbb,0 3px 1px #ddd;
+        box-shadow:0 1px 1px #bbb,0 3px 1px #ddd;
+        font-weight:bold;
+    }
+    .button.active,
+    .button2.on{
+        -webkit-transform:translate(0,2px);
+        -moz-transform:translate(0,2px);
+        -ms-transform:translate(0,2px);
+        -o-transform:translate(0,2px);
+        background:-webkit-gradient(linear,0 0,0 100%,from(#eee),to(#ccc));
+        background:-moz-linear-gradient(top,#eee,#ccc);
+        background:-ms-linear-gradient(top,#eee,#ccc);
+        background:-o-linear-gradient(top,#eee,#ccc);
+        -webkit-box-shadow:0 1px 1px #bbb,0 1px 1px #ddd;
+        -moz-box-shadow:0 1px 1px #bbb,0 1px 1px #ddd;
+        -ms-box-shadow:0 1px 1px #bbb,0 1px 1px #ddd;
+        -o-box-shadow:0 1px 1px #bbb,0 1px 1px #ddd;
+        box-shadow:0 1px 1px #bbb,0 1px 1px #ddd;
+    }
+    </style>
+</head>
+<body>
+
+<p class="button">Click me!</p>
+<p class="button2">Click me!</p>
+
+<script type="text/javascript">
+    $('.button').touchClick(function(e){
+        console.log('$(\'selector\').touchClick(only-function(){});');
+        console.log(this);
+    });
+    $('.button2').touchClick('on',function(e){
+        console.log('$(\'selector\').touchClick(\'add-className\',function(){});');
+        console.log(this);
+    }).text('Method Chain OK!');
+</script>
+
+</body>
+</html>
